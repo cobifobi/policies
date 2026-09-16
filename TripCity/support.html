@@ -19,36 +19,109 @@
     body { color: #f2f2f7; background: #000; }
     a { color: #0a84ff; }
   }
-  h1 { font-size: 1.6em; margin-bottom: 24px; }
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .page-header img {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+  h1 { font-size: 1.6em; margin: 0; }
   h2 { font-size: 1.15em; margin-top: 2em; }
   a { color: #007aff; }
   ul { padding-left: 20px; }
   li { margin-bottom: 6px; }
+  form.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 420px;
+  }
+  form.contact label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+  form.contact input,
+  form.contact textarea {
+    font: inherit;
+    font-size: 1em;
+    padding: 9px 10px;
+    border-radius: 8px;
+    border: 1px solid #c6c6c8;
+    background: #fff;
+    color: #1c1c1e;
+  }
+  @media (prefers-color-scheme: dark) {
+    form.contact input,
+    form.contact textarea { background: #1c1c1e; color: #f2f2f7; border-color: #3a3a3c; }
+  }
+  form.contact textarea { resize: vertical; min-height: 100px; }
+  form.contact button {
+    align-self: flex-start;
+    font: inherit;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: none;
+    background: #007aff;
+    color: #fff;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
-  <h1>Trip City — Support</h1>
+  <div class="page-header">
+    <img src="icon.png" alt="Trip City app icon">
+    <h1>Trip City</h1>
+  </div>
 
-  <p>Trip City shows live Portland-area transit stops and arrival predictions for Streetcar, MAX, and Bus.</p>
+  <p>Trip City is a simple app for quickly finding nearby transit arrivals in Portland, OR.</p>
+  
+  <h2>Usage</h2>
+  
+  <ul>
+    <li>Open the app to see nearby stops and arrival times for MAX, Bus and Streetcar. </li>
+    <li>Tap an arrival to see its current location and expected route times. </li>
+    <li>Long press a transit stop in the list to favorite it. Favorite stops will appear at the top of the list when in range. </li>
+    <li>Settings allows you to choose your search range, customize which modes of transport you see, and arrange them. </li>
+  </ul>
 
-  <h2>Contact</h2>
-  <p>Questions, bug reports, or feature requests can be sent to <a href="mailto:rewards_placers2u@icloud.com">rewards_placers2u@icloud.com</a>. We aim to respond within a few days.</p>
+  <h2>FAQ</h2>
 
-  <h2>Common questions</h2>
+  <p><strong>Does the app need location access?</strong><br>
+  Yes; Trip City uses your location to find and sort nearby transit stops. Your location is only used for this purpose. It is only needed while the app is in use, and is never stored or sent anywhere.</p>
 
-  <p><strong>Why does the app need my location?</strong><br>
-  Trip City uses your location, while the app is in use, to find and sort nearby transit stops. Your location is never sent anywhere or stored — it's used only on your device.</p>
+  <p><strong>I think this arrival time/vehicle location is inaccurate?</strong><br>
+  Trip City relies on TriMet's public real-time data feeds. On occasion, there are inaccuracies in the live arrival or vehicle position info. If the information is temporarily unavailable, the app will show "Live vehicle location unavailable"; location tracking will resume once the feed updates.</p>
 
-  <p><strong>Arrival times look off or a stop is missing.</strong><br>
-  Trip City relies on TriMet's public real-time data feed. Occasionally a vehicle's live position is temporarily unavailable from that feed — the app will show "Live vehicle location unavailable" in that case, and predictions will resume once the feed updates.</p>
+  <p><strong>How do I plan my journey/route?</strong><br>
+  Trip City does not have route planning capabilities, beyond showing an individual vehicle's planned stops and arrival times. This app is intended as a lightweight tool for finding nearby transit arrivals. For route planning, I recommend <a href="https://teleportaloo.org/pdx-bus/">PDX Bus</a> or your device's maps app.</p>
 
-  <p><strong>How do I change my search radius?</strong><br>
-  Open Settings from the app and adjust "Search Radius" to 1, 2, or 3 miles.</p>
-
-  <p><strong>How do I favorite a stop?</strong><br>
-  Long-press a stop's name in any list to bring up a Favorite / Remove from Favorites option. Favorited stops appear in their own section at the top of the list.</p>
+  <p><strong>Can you add the ability to do _____?</strong><br>
+  Maybe! Very happy to receive improvement suggestions. However, this app is intended to be lightweight and purpose-focused, so future improvements are more likely to skew towards refinements rather than big new pieces of functionality. For a more fully-featured PDX transit app, I highly recommend <a href="https://teleportaloo.org/pdx-bus/">PDX Bus</a>.</p>
 
   <h2>Privacy</h2>
   <p>See our <a href="privacy.html">Privacy Policy</a> for details on what data Trip City uses.</p>
+
+  <h2>Contact</h2>
+  <p>Please send any questions or feedback below:</p>
+  <form class="contact" action="mailto:rewards_placers2u@icloud.com" method="post" enctype="text/plain">
+    <label>
+      Your name
+      <input type="text" name="name" autocomplete="name">
+    </label>
+    <label>
+      Message
+      <textarea name="body" required></textarea>
+    </label>
+    <button type="submit">Send</button>
+  </form>
 </body>
 </html>
